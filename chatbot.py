@@ -33,9 +33,14 @@ pares_palmeiras = [
         r"O palmeiras não tem mundial|O palmeiras tem mundial?",
         ["A Fifa entende que a Copa Rio de 1951 foi o primeiro torneio de clubes de nível mundial, independentemente do nome que a competição tinha. Então, sim, o Palmeiras tem mundial!!"]
     ],
+            [
+        r"quantos titulos o palmeiras tem?",
+        ["Até o momento, o Verdão conquistou 54 títulos em sua história, contando os principais campeonatos que o clube já disputou."]
+    ],
         [
         r".*",
-        ["Desculpe, não entendi. Pode reformular a pergunta?", "Não tenho informações sobre isso. Pode tentar outra pergunta?"]
+        ["Desculpe, não entendi. Pode reformular a pergunta?",
+         "Não tenho informações sobre isso. Pode tentar outra pergunta?"]
     ]
 ]
 
