@@ -13,7 +13,7 @@ O VerdãoBot é um chatbot simples construído com tkinter e nltk em Python. Ele
 
 1. Clone este repositório.
 2. Certifique-se de ter o Python instalado em seu sistema.
-3. Instale as dependências usando o comando: `pip install -r requirements.txt`
+3. Instale as dependências usando o comando: `pip install requirements`
 4. Execute o script `chatbot.py` para iniciar o chatbot.
 5. Digite uma mensagem na caixa de entrada e pressione "Enviar" ou pressione Enter no teclado para enviar a mensagem.
 6. O chatbot responderá automaticamente com informações sobre o Palmeiras.
