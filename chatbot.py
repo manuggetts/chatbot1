@@ -1,4 +1,5 @@
-import nltk
+import tkinter as tk
+from tkinter import messagebox
 from nltk.chat.util import Chat, reflections
 
 pares_palmeiras = [
@@ -44,15 +45,42 @@ pares_palmeiras = [
     ]
 ]
 
-def chatbot_palmeiras():
-    print("Olá! Sou o Chatbot temático sobre o Palmeiras. Como posso ajudá-lo hoje?")
-    chat = Chat(pares_palmeiras, reflections)
-    while True:
-        try:
-            entrada = input()
-            resposta = chat.respond(entrada)
-            print(resposta)
-        except KeyboardInterrupt:
-            break
+def responder():
+    pergunta = entrada.get()
+    resposta = chatbot_responder(pergunta)
+    area_resposta.config(state=tk.NORMAL)
+    area_resposta.delete(1.0, tk.END)
+    area_resposta.insert(tk.END, resposta)
+    area_resposta.config(state=tk.DISABLED)
 
-chatbot_palmeiras()
+def enviar_quando_enter(event):
+    responder()
+
+def chatbot_responder(pergunta):
+    chat = Chat(pares_palmeiras, reflections)
+    resposta = chat.respond(pergunta)
+    return resposta
+
+janela = tk.Tk()
+janela.title("VerdãoBot")
+janela.geometry("400x400")
+
+imagem_bandeira = tk.PhotoImage(file="img/bandeira-italia.png")
+
+label_bg = tk.Label(janela, image=imagem_bandeira)
+label_bg.place(x=0, y=0, relwidth=1, relheight=1)
+
+titulo = tk.Label(janela, text="VerdãoBot", font=("Arial", 20, "bold"), bg="white", fg="green")
+titulo.pack(pady=10)
+
+entrada = tk.Entry(janela, width=30, relief=tk.SUNKEN)
+entrada.pack(pady=10)
+entrada.bind("<Return>", enviar_quando_enter)
+
+botao_enviar = tk.Button(janela, text="Enviar", command=responder, bg="white", fg="green")
+botao_enviar.pack(pady=5)
+
+area_resposta = tk.Text(janela, width=50, height=15, state=tk.DISABLED, bg="white")
+area_resposta.pack(pady=10)
+
+janela.mainloop()
