@@ -1,9 +1,8 @@
-# VerdãoBot
+# VerdãoBot 🐷💚
 
-O VerdãoBot é um chatbot simples construído com tkinter e nltk em Python. Ele fornece algumas informações sobre o Palmeiras.
+O VerdãoBot é um chatbot simples construído com tkinter e nltk em Python. Ele fornece algumas informações sobre o Palmeiras. 🐽
 
-![Interface do VerdãoBot](https://github.com/manuggetts/chatbot1/assets/141872152/2b1f6036-ae67-44d8-b39e-7323860c256d) ![Interface2](https://github.com/manuggetts/chatbot1/assets/141872152/ec918730-ccb8-43b4-83ff-ece8594a180b)
-
+![Interface](https://github.com/manuggetts/chatbot1/assets/141872152/cb7c40d8-a347-4fc9-baaa-a54cf87bd88b)
 
 ## Requisitos de Instalação
 
