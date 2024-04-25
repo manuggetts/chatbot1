@@ -1,11 +1,16 @@
-import tkinter as tk
-from tkinter import messagebox
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from nltk.chat.util import Chat, reflections
+from design import Ui_VerdaoBot
+from PyQt5.QtGui import QIcon
 
 pares_palmeiras = [
     [
         r"oi|olá|hey|hello",
         ["Olá!", "Oi!", "Opa! Avanti Palestra!"]
+    ],
+    [
+        r"palmeiras",
+        ["Palmeiras é o maior time do Brasil!", "Avanti Palestra!"]
     ],
     [
         r"qual é o seu nome?",
@@ -45,42 +50,36 @@ pares_palmeiras = [
     ]
 ]
 
-def responder():
-    pergunta = entrada.get()
-    resposta = chatbot_responder(pergunta)
-    area_resposta.config(state=tk.NORMAL)
-    area_resposta.delete(1.0, tk.END)
-    area_resposta.insert(tk.END, resposta)
-    area_resposta.config(state=tk.DISABLED)
+class VerdãoBot(QMainWindow, Ui_VerdaoBot):
+    def __init__(self, *args, **kwargs):
+        super(VerdãoBot, self).__init__(*args, **kwargs)
+        self.setupUi(self)
 
-def enviar_quando_enter(event):
-    responder()
+        self.setWindowIcon(QIcon('img/projeto5.jpg'))
 
-def chatbot_responder(pergunta):
-    chat = Chat(pares_palmeiras, reflections)
-    resposta = chat.respond(pergunta)
-    return resposta
+        self.Resposta.setReadOnly(True)
 
-janela = tk.Tk()
-janela.title("VerdãoBot")
-janela.geometry("400x400")
+        self.Enviar.clicked.connect(self.responder)
+        self.Texto.returnPressed.connect(self.responder)
 
-imagem_bandeira = tk.PhotoImage(file="img/bandeira-italia.png")
+    def responder(self):
+        pergunta = self.Texto.text()
 
-label_bg = tk.Label(janela, image=imagem_bandeira)
-label_bg.place(x=0, y=0, relwidth=1, relheight=1)
+        self.Texto.clear()
 
-titulo = tk.Label(janela, text="VerdãoBot", font=("Arial", 20, "bold"), bg="white", fg="green")
-titulo.pack(pady=10)
+        resposta = self.chatbot_responder(pergunta)
 
-entrada = tk.Entry(janela, width=30, relief=tk.SUNKEN)
-entrada.pack(pady=10)
-entrada.bind("<Return>", enviar_quando_enter)
+        self.Resposta.append('Usuário: "' + pergunta + '"\n\nVerdãoBot: ' + resposta)
 
-botao_enviar = tk.Button(janela, text="Enviar", command=responder, bg="white", fg="green")
-botao_enviar.pack(pady=5)
+    def chatbot_responder(self, pergunta):
+        chat = Chat(pares_palmeiras, reflections)
+        resposta = chat.respond(pergunta)
+        return resposta
 
-area_resposta = tk.Text(janela, width=50, height=15, state=tk.DISABLED, bg="white")
-area_resposta.pack(pady=10)
+if __name__ == '__main__':
+    app = QApplication([])
 
-janela.mainloop()
+    bot = VerdãoBot()
+    bot.show()
+
+    app.exec_()
