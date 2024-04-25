@@ -13,14 +13,23 @@ O **VerdãoBot** é um chatbot simples construído com **PyQt5** e **nltk** em P
 - Bibliotecas Python: PyQt5, nltk
 ---
 ## 🚀 Instruções de Uso 
+1. Clone este repositório:
 
-1. Clone este repositório.
-2. Certifique-se de ter o Python instalado em seu sistema.
-3. Instale as dependências usando o comando:
+```
+git clone https://github.com/manuggetts/chatbot1.git
+```
+
+2. Instale as dependências:
+
 ```
 pip install PyQt5 nltk
 ```
-4. Execute o script `chatbot.py` para iniciar o chatbot.
+
+3. Execute o script Python:
+
+```
+python chatbot.py
+```
 5. Digite uma mensagem na caixa de entrada e pressione "Enviar" ou pressione Enter no teclado para enviar a mensagem.
 6. O chatbot responderá automaticamente com informações sobre o Palmeiras.
 ---
@@ -34,11 +43,9 @@ A interface do VerdãoBot é simples e fácil de usar. Ela consiste em três par
 
 3. **Campo de Resposta (Resposta)**: Este é o local onde as respostas do VerdãoBot serão exibidas. Cada vez que você envia uma mensagem, a pergunta e a resposta do VerdãoBot são adicionadas a este campo. Este campo é somente leitura, o que significa que você não pode editar as mensagens que são exibidas aqui.
 ---
-## 🚀 Roadmap de Atualizações Futuras
+## 🗺️ Roadmap
 
-Aqui estão algumas das atualizações e melhorias planejadas para o VerdãoBot:
-
-### Versão 2.0
+### Versão 2.0 (Próxima versão)
 - **Melhorias na Interface do Usuário**: Planejamos fazer algumas atualizações na interface do usuário para torná-la mais intuitiva e fácil de usar.
 - **Suporte a Mais Perguntas**: Estamos trabalhando para expandir a base de conhecimento do VerdãoBot para que ele possa responder a uma gama ainda maior de perguntas sobre o Palmeiras.
 
